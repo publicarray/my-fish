@@ -1,4 +1,4 @@
-#My fish aliases
+# My fish aliases
 
 [![Slack Room][slack-badge]][slack-link]
 
