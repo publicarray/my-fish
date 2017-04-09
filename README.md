@@ -22,7 +22,7 @@ Configure shell to my preferences
 my-fish
 ```
 
-## Install Manualy
+## Install Manually (on a new machine)
 
 1. Install [homebrew](https://brew.sh/)
 
