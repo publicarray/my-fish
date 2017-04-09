@@ -43,33 +43,7 @@ chsh -s /usr/local/bin/fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 ```
 
-4. Install plug-ins and [prompt](https://github.com/publicarray/pure)
-
-```sh
-fisher oh-my-fish/plugin-battery
-fisher oh-my-fish/plugin-brew
-fisher oh-my-fish/plugin-bundler
-fisher oh-my-fish/plugin-composer
-fisher oh-my-fish/plugin-hash
-fisher oh-my-fish/plugin-osx
-fisher oh-my-fish/plugin-php
-fisher oh-my-fish/plugin-phpbrew
-fisher oh-my-fish/plugin-thefuck
-fisher Shadowigor/plugin-errno-grep
-fisher fisherman/cprintf
-fisher fisherman/docker-completion
-fisher fisherman/done
-fisher fisherman/g2
-fisher fisherman/getopts
-fisher fisherman/git_util
-fisher fisherman/gitignore
-fisher fisherman/z
-fisher publicarray/pure
-fisher publicarray/update
-fish_update_completions
-```
-
-5. Install [micro - a modern text editor](https://github.com/zyedidia/micro)
+4. Install [micro - a modern text editor](https://github.com/zyedidia/micro)
 
 ```sh
 brew install micro
@@ -77,20 +51,20 @@ set -Ux EDITOR micro
 set -Ux VISUAL $EDITOR
 ```
 
-6. Install extras so all commands work
+5. Install extras so all commands work
 
 ```sh
 # set -Ux HOMEBREW_NO_ANALYTICS 1
 brew install z thefuck mas hub archey composer php71 yarn tree grep ack unar \
   iproute2mac grc gnutls git git-extras nano archey
 brew install make --with-default-names
-brew cask install gpgtools docker sublime-text atom p4merge
+brew cask install gpgtools docker sublime-text-dev atom p4merge
 
 gem install bundler
 sudo easy_install -U Pygments
 ```
 
-7. Set shell colours
+6. Set shell colours
 
 ```sh
 set -U fish_color_normal normal # the default color
@@ -126,13 +100,18 @@ set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
 set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
 ```
 
-8. Add GOPATH to $PATH
+7. Add GOPATH to $PATH
 
 ```sh
 set -Ux GOPATH $HOME/go
 set -U fish_user_paths $fish_user_paths $GOPATH/bin
 ```
 
+8. Update completions
+
+```sh
+fish_update_completions
+```
 
 [slack-link]: https://fisherman-wharf.herokuapp.com
 [slack-badge]: https://fisherman-wharf.herokuapp.com/badge.svg

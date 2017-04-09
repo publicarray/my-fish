@@ -15,7 +15,7 @@ function my-fish
   brew install z thefuck mas hub archey composer php71 yarn tree grep ack unar \
     iproute2mac grc gnutls git git-extras nano archey
   brew install make --with-default-names
-  brew cask install gpgtools docker sublime-text atom p4merge
+  brew cask install gpgtools docker sublime-text-dev atom p4merge
   gem install bundler
 
   echo "Update completions"
