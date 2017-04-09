@@ -43,7 +43,13 @@ chsh -s /usr/local/bin/fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 ```
 
-4. Install [micro - a modern text editor](https://github.com/zyedidia/micro)
+4. Install my-fish and other Fisherman plugins
+
+```sh
+fisher publicarray/my-fish
+```
+
+5. Install [micro - a modern text editor](https://github.com/zyedidia/micro)
 
 ```sh
 brew install micro
@@ -51,7 +57,7 @@ set -Ux EDITOR micro
 set -Ux VISUAL $EDITOR
 ```
 
-5. Install extras so all commands work
+6. Install extras so all commands work
 
 ```sh
 # set -Ux HOMEBREW_NO_ANALYTICS 1
@@ -64,7 +70,7 @@ gem install bundler
 sudo easy_install -U Pygments
 ```
 
-6. Set shell colours
+7. Set shell colours
 
 ```sh
 set -U fish_color_normal normal # the default color
@@ -100,7 +106,7 @@ set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
 set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
 ```
 
-7. Add GOPATH to $PATH
+8. Add GOPATH to $PATH
 
 ```sh
 set -Ux GOPATH $HOME/go

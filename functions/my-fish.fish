@@ -18,9 +18,6 @@ function my-fish
   brew cask install gpgtools docker sublime-text-dev atom p4merge
   gem install bundler
 
-  echo "Update completions"
-  fish_update_completions
-
   echo "Install micro - a modern text editor <https://github.com/zyedidia/micro>"
   brew install micro
   set -Ux EDITOR micro
@@ -63,4 +60,7 @@ function my-fish
   set -Ux GOPATH $HOME/go
   set -U fish_user_paths $fish_user_paths $GOPATH/bin
   path
+
+  echo "Update completions"
+  fish_update_completions
 end
