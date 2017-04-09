@@ -8,13 +8,15 @@ publicarray's fish aliases, functions and configuration for macOS
 
 With [fisherman]
 
+The following command installs this repo and everything in [fishfile](https://github.com/publicarray/my-fish/blob/master/fishfile)
+
 ```
 fisher publicarray/my-fish
 ```
 
 Configure shell to my preferences
 
-**These are my personal preferences and as such it is not recommended to run 'this command without knowing what it does. Please inspect [my-fish](https://github.com/publicarray/my-fish/blob/master/functions/my-fish.fish) beforehand**
+**These are my personal preferences and as such it is not recommended to run the 'my-fish' command without knowing what it does. Please inspect [my-fish](https://github.com/publicarray/my-fish/blob/master/functions/my-fish.fish) beforehand**
 
 ```sh
 my-fish
