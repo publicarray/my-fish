@@ -2,7 +2,7 @@
 
 [![Slack Room][slack-badge]][slack-link]
 
-publicarray's fish aliases and functions for macOS
+publicarray's fish aliases, functions and configuration for macOS
 
 ## Install
 
@@ -12,12 +12,13 @@ With [fisherman]
 fisher publicarray/my-fish
 ```
 
-Install fisherman plug-ins and configure shell to my liking
+Configure shell to my preferences
+
+**These are my personal preferences and as such it is not recommended to run 'this command without knowing what it does. Please inspect [my-fish](https://github.com/publicarray/my-fish/blob/master/functions/my-fish.fish) beforehand**
 
 ```sh
 my-fish
 ```
-
 
 ## Install Manualy
 
@@ -43,7 +44,7 @@ chsh -s /usr/local/bin/fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 ```
 
-4. Install my-fish and other Fisherman plugins
+4. Install my-fish, prompt and other Fisherman plug-ins
 
 ```sh
 fisher publicarray/my-fish
