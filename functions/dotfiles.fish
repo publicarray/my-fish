@@ -23,7 +23,7 @@ function dotfiles -d "Configure your dotfiles in your editor"
   else if test "$argv" = 'fish'
     eval $editor -n ~/.config/fish
   else if test "$argv" = 'zsh'
-    eval $editor -n  ~/.zshrc
+    eval $editor -n ~/.zshrc
     eval $editor ~/.zprofile
     eval $editor ~/.zlogin
     eval $editor ~/.zlogout

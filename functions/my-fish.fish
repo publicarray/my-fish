@@ -7,7 +7,7 @@ function my-fish
 
   echo "Make fish your default shell"
   which fish | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/fish
+  chsh -s (which fish)
 
   echo "Install extras so all commands work"
   set -Ux HOMEBREW_NO_ANALYTICS 1
