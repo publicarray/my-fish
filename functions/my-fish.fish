@@ -18,27 +18,7 @@ function my-fish
   brew cask install gpgtools docker sublime-text atom p4merge
   gem install bundler
 
-  echo "Install plug-ins and prompt <https://github.com/publicarray/pure>"
-  fisher oh-my-fish/plugin-battery
-  fisher oh-my-fish/plugin-brew
-  fisher oh-my-fish/plugin-bundler
-  fisher oh-my-fish/plugin-composer
-  fisher oh-my-fish/plugin-hash
-  fisher oh-my-fish/plugin-osx
-  fisher oh-my-fish/plugin-php
-  fisher oh-my-fish/plugin-phpbrew
-  fisher oh-my-fish/plugin-thefuck
-  fisher Shadowigor/plugin-errno-grep
-  fisher fisherman/cprintf
-  fisher fisherman/docker-completion
-  fisher fisherman/done
-  fisher fisherman/g2
-  fisher fisherman/getopts
-  fisher fisherman/git_util
-  fisher fisherman/gitignore
-  fisher fisherman/z
-  fisher publicarray/pure
-  fisher publicarray/update
+  echo "Update completions"
   fish_update_completions
 
   echo "Install micro - a modern text editor <https://github.com/zyedidia/micro>"
