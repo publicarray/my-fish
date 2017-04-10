@@ -1,5 +1,5 @@
 function configure
-  if command -v grc > /dev/null
+  if command -sq grc
     grc --colour=auto configure $argv
   else
     command configure $argv

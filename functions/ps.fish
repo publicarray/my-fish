@@ -1,5 +1,5 @@
 function ps
-  if command -v grc > /dev/null
+  if command -sq grc
     grc --colour=auto ps $argv
   else
     command ps $argv

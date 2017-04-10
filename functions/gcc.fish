@@ -1,5 +1,5 @@
 function gcc
-  if command -v grc > /dev/null
+  if command -sq grc
     grc --colour=auto gcc $argv
   else
     command gcc $argv

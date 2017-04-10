@@ -1,5 +1,5 @@
 function make
-  if command -v grc > /dev/null
+  if command -sq grc
     grc --colour=auto make $argv
   else
     command make $argv

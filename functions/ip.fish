@@ -1,6 +1,6 @@
-if command -v ip > /dev/null
+if command -sq ip
   function ip
-    if command -v grc > /dev/null
+    if command -sq grc
       grc --colour=auto ip $argv
     else
       command ip $argv

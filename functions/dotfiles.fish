@@ -1,8 +1,8 @@
 function dotfiles -d "Configure your dotfiles in your editor"
   set -l editor
-  if command -v subl > /dev/null
+  if command -sq subl
     set editor subl
-  else if command -v atom > /dev/null
+  else if command -sq atom
     set editor atom
   end
 

@@ -1,5 +1,5 @@
 function git --description 'alias git=hub'
-  if command -v hub > /dev/null
+  if command -sq hub
     hub $argv
   else
     command git $argv

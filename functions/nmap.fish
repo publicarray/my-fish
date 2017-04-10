@@ -1,6 +1,6 @@
-if command -v nmap > /dev/null
+if command -sq nmap
   function nmap
-    if command -v grc > /dev/null
+    if command -sq grc
       grc --colour=auto nmap $argv
     else
       command nmap $argv

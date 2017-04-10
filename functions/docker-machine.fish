@@ -1,5 +1,5 @@
 function docker-machine
-  if command -v grc > /dev/null
+  if command -sq grc
     grc --colour=auto docker-machine $argv
   else
     command docker-machine $argv

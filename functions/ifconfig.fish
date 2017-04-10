@@ -1,5 +1,5 @@
 function ifconfig
-  if command -v grc > /dev/null
+  if command -sq grc
     grc --colour=auto ifconfig $argv
   else
     command ifconfig $argv

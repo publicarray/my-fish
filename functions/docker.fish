@@ -1,9 +1,4 @@
 function docker
-  # set -l cmd docker
-  # echo $cmd $argv
-  # if command -v grc > /dev/null # colours
-  #   set cmd grc --colour=auto docker
-  # end
 
   if test -z "$argv"
     docker
@@ -26,7 +21,7 @@ function docker
     docker cleanc
     docker cleani
     docker cleanv
-  else if command -v grc > /dev/null # colours
+  else if command -sq grc # colours
     grc --colour=auto docker $argv
   else
     command docker $argv

@@ -4,6 +4,10 @@ function my-fish
   #   brew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   #   fish: brew install fish
   #   fishermen: curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+  if not command -sq brew and not command -sq fish and not type -q fisher and not command -sq gem and not command -sq easy_install
+    echo "Error: missing requirements"
+    return 1
+  end
 
   echo "Make fish your default shell"
   which fish | sudo tee -a /etc/shells

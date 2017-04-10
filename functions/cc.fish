@@ -1,5 +1,5 @@
 function cc
-  if command -v grc > /dev/null
+  if command -sq grc
     grc --colour=auto cc $argv
   else
     command cc $argv
