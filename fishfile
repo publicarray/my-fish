@@ -1,20 +1,20 @@
-fisher oh-my-fish/plugin-battery
-fisher oh-my-fish/plugin-brew
-fisher oh-my-fish/plugin-bundler
-fisher oh-my-fish/plugin-composer
-fisher oh-my-fish/plugin-hash
-fisher oh-my-fish/plugin-osx
-fisher oh-my-fish/plugin-php
-fisher oh-my-fish/plugin-phpbrew
-fisher oh-my-fish/plugin-thefuck
-fisher Shadowigor/plugin-errno-grep
-fisher fisherman/cprintf
-fisher fisherman/docker-completion
-fisher fisherman/done
-fisher fisherman/g2
-fisher fisherman/getopts
-fisher fisherman/git_util
-fisher fisherman/gitignore
-fisher fisherman/z
-fisher publicarray/pure
-fisher publicarray/update
+oh-my-fish/plugin-battery
+oh-my-fish/plugin-brew
+oh-my-fish/plugin-bundler
+oh-my-fish/plugin-composer
+oh-my-fish/plugin-hash
+oh-my-fish/plugin-osx
+oh-my-fish/plugin-php
+oh-my-fish/plugin-phpbrew
+oh-my-fish/plugin-thefuck
+Shadowigor/plugin-errno-grep
+fisherman/cprintf
+fisherman/docker-completion
+fisherman/done
+fisherman/g2
+fisherman/getopts
+fisherman/git_util
+fisherman/gitignore
+fisherman/z
+publicarray/pure
+publicarray/update
