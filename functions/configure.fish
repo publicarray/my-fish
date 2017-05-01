@@ -5,4 +5,3 @@ function configure
     command configure $argv
   end
 end
-
