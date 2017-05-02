@@ -16,7 +16,7 @@ function ram
     if test $sum != "0"
       echo (set_color blue)"$app"(set_color reset)" uses "(set_color green)"$sum"(set_color reset)" MBs of RAM."
     else
-      echo "There are no processes with pattern "(set_color blue)"$app"(set_color reset)" are running."
+      echo "There are no processes called "(set_color blue)"$app"(set_color reset)" running."
     end
   end
 end
