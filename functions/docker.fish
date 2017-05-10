@@ -1,10 +1,4 @@
 function docker
-
-  if test -z "$argv"
-    docker
-    return 1
-  end
-
   # source: <https://www.calazan.com/docker-cleanup-commands/>
   if test "$argv" = 'killall' # Kill all running containers.
     docker kill (docker ps -q)
