@@ -1,4 +1,4 @@
-# My fish 
+# My fish
 
 [![Slack Room][slack-badge]][slack-link]
 
@@ -10,7 +10,7 @@ With [fisherman]
 
 The following command installs this repo and everything in [fishfile](https://github.com/publicarray/my-fish/blob/master/fishfile)
 
-```
+```sh
 fisher publicarray/my-fish
 ```
 
