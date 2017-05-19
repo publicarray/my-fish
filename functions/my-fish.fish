@@ -1,5 +1,10 @@
 function my-fish
 
+  if test (uname) != "Darwin"
+      printf "This script only runs on macOS"
+      exit 1
+  end
+
   # required:
   #   brew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   #   fish: brew install fish
