@@ -11,6 +11,7 @@ Shadowigor/plugin-errno-grep
 fisherman/cprintf
 fisherman/docker-completion
 fisherman/done
+fisherman/free
 fisherman/g2
 fisherman/getopts
 fisherman/git_util
