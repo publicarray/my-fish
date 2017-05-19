@@ -12,7 +12,8 @@ sudo apt-get install fish
 
 ## Debian
 
-https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish
+[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
+
 
 ```sh
 echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_8.0/ /' > /etc/apt/sources.list.d/fish.list 
@@ -22,7 +23,7 @@ apt-get install fish
 
 ## RedHat (Fedora / CentOS)
 
-https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish
+[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
 
 ### RHEL
 ```sh
@@ -58,7 +59,11 @@ pacman -S fish
 emerge fish
 ```
 
-# 2. Make fish default
+## OpenSUSE
+
+[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
+
+# 2. Make fish your default shell
 
 ```sh
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
@@ -75,5 +80,5 @@ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
 ```sh
 fisher publicarray/my-fish
-#my-fish
+my-fish
 ```

@@ -22,7 +22,7 @@ Configure shell to my preferences
 my-fish
 ```
 
-## Install Linux
+## Install on your favourite Linux Distro
 
 see [linux.md](linux.md)
 
@@ -56,11 +56,19 @@ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fisher publicarray/my-fish
 ```
 
-5. Install [micro - a modern text editor](https://github.com/zyedidia/micro)
+5. (Optional) Install [micro - a modern text editor](https://github.com/zyedidia/micro)
 
 ```sh
 brew install micro
 set -Ux EDITOR micro
+set -Ux VISUAL $EDITOR
+```
+
+ or [The nice editor](http://ne.di.unimi.it)
+
+```sh
+brew install ne
+set -Ux EDITOR ne
 set -Ux VISUAL $EDITOR
 ```
 
