@@ -22,7 +22,11 @@ Configure shell to my preferences
 my-fish
 ```
 
-## Install Manually (on a new machine)
+## Install Linux
+
+see [linux.md](linux.md)
+
+## Install Manually (on a new macOS machine)
 
 1. Install [homebrew](https://brew.sh/)
 
