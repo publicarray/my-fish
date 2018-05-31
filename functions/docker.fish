@@ -15,6 +15,10 @@ function docker
     docker cleanc
     docker cleani
     docker cleanv
+  else if test "$argv" = 'upgrade' # docker pull all images.
+    printf "\n>>> Updating images\n"
+    printf "\n>>> Warning! This overrides local build images from docker hub!\n\n"
+    docker images | grep -v REPOSITORY | awk '{print $1}'| sort | uniq | xargs -L1 docker pull
   else if command -sq grc # colours
     grc --colour=auto docker $argv
   else
