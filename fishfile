@@ -5,7 +5,6 @@ oh-my-fish/plugin-composer
 oh-my-fish/plugin-hash
 oh-my-fish/plugin-osx
 oh-my-fish/plugin-php
-oh-my-fish/plugin-phpbrew
 oh-my-fish/plugin-thefuck
 Shadowigor/plugin-errno-grep
 fisherman/cprintf
