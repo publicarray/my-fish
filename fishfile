@@ -8,7 +8,7 @@ oh-my-fish/plugin-php
 oh-my-fish/plugin-thefuck
 Shadowigor/plugin-errno-grep
 fisherman/cprintf
-fisherman/docker-completion
+barnybug/docker-fish-completion
 fisherman/done
 fisherman/free
 fisherman/g2
