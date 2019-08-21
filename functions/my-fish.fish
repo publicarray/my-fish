@@ -23,8 +23,15 @@ function my-fish
   sudo easy_install -U Pygments
   brew install z thefuck mas hub archey composer php yarn tree grep ack unar \
     iproute2mac grc coreutils git git-extras nano archey nmap ripgrep make
-  brew cask install gpgtools docker sublime-text-dev sublime-merge
-  gem install bundler
+  brew cask install gpg-suite docker sublime-text-dev sublime-merge ruby
+
+  echo "Add GOPATH to \$PATH"
+  set -Ux GOPATH $HOME/go
+  set -U fish_user_paths /usr/local/opt/ruby/bin $fish_user_paths $GOPATH/bin
+  path
+
+  gem install iStats -n /usr/local/bin
+  pip3 install glances
 
   # echo "Install micro - a modern text editor <https://github.com/zyedidia/micro>"
   # brew install micro
@@ -63,11 +70,6 @@ function my-fish
   set -Ux LESS_TERMCAP_so \e'[01;44;33m' # begin standout-mode - info box
   set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
   set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
-
-  echo "Add GOPATH to \$PATH"
-  set -Ux GOPATH $HOME/go
-  set -U fish_user_paths $fish_user_paths $GOPATH/bin
-  path
 
   echo "Update completions"
   fish_update_completions
