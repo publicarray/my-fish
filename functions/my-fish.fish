@@ -22,9 +22,8 @@ function my-fish
   set -Ux HOMEBREW_NO_ANALYTICS 1
   sudo easy_install -U Pygments
   brew install z thefuck mas hub archey composer php yarn tree grep ack unar \
-    iproute2mac grc gnutls git git-extras nano archey nmap ngrep
-  brew install make --with-default-names
-  brew cask install gpgtools docker sublime-text-dev atom p4merge
+    iproute2mac grc coreutils git git-extras nano archey nmap ripgrep make
+  brew cask install gpgtools docker sublime-text-dev sublime-merge
   gem install bundler
 
   # echo "Install micro - a modern text editor <https://github.com/zyedidia/micro>"
