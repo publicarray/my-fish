@@ -1,5 +1,5 @@
 function dig
-  if command -v grc > /dev/null
+  if command -sq grc
     grc --colour=auto dig +multiline $argv
   else
     command dig +multiline $argv

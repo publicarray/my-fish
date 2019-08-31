@@ -21,17 +21,14 @@ function my-fish
   echo "Install extras so all commands work"
   set -Ux HOMEBREW_NO_ANALYTICS 1
   sudo easy_install -U Pygments
-  brew install z thefuck mas hub archey composer php yarn tree grep ack unar \
-    iproute2mac grc coreutils git git-extras nano archey nmap ripgrep make
-  brew cask install gpg-suite docker sublime-text-dev sublime-merge ruby
-
-  echo "Add GOPATH to \$PATH"
-  set -Ux GOPATH $HOME/go
-  set -U fish_user_paths /usr/local/opt/ruby/bin $fish_user_paths $GOPATH/bin
-  path
-
-  gem install iStats -n /usr/local/bin
-  pip3 install glances
+  brew install wget coreutils z thefuck mas hub archey ruby composer php yarn tree grep ack unar \
+    iproute2mac grc gnutls git hub git-extras nano archey nmap ngrep lunchy \
+    ripgrep exa bat topgrade
+    #php-cs-fixer shellcheck
+    #go rustup
+  brew install make --with-default-names
+  brew cask install gpgtools sublime-text-dev sublime-merge # fork docker
+  gem install bundler
 
   # echo "Install micro - a modern text editor <https://github.com/zyedidia/micro>"
   # brew install micro
@@ -70,6 +67,13 @@ function my-fish
   set -Ux LESS_TERMCAP_so \e'[01;44;33m' # begin standout-mode - info box
   set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
   set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
+
+  echo "Add GOPATH to \$PATH"
+  set -Ux GOPATH $HOME/go
+  set -U fish_user_paths $fish_user_paths $GOPATH/bin
+  echo "Add rust/cargo to \$PATH"
+  set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+  path
 
   echo "Update completions"
   fish_update_completions
