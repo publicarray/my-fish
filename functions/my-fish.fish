@@ -22,7 +22,7 @@ function my-fish
   set -Ux HOMEBREW_NO_ANALYTICS 1
   sudo easy_install -U Pygments
   brew install wget coreutils z thefuck mas hub archey ruby composer php yarn tree grep ack unar \
-    iproute2mac grc gnutls git hub git-extras nano archey nmap ngrep lunchy \
+    iproute2mac grc gnutls git hub git-extras nano archey nmap ngrep lunchy terminal-notifier \
     ripgrep exa bat topgrade
     #php-cs-fixer shellcheck
     #go rustup
