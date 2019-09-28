@@ -14,6 +14,8 @@ function my-fish
   chsh -s (which fish)
 
   echo "Set Environment Variables"
+  # remove fish greeting
+  set fish_greeting
   if command -sq brew
     set -Ux HOMEBREW_NO_ANALYTICS 1
   end

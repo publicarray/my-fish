@@ -45,10 +45,15 @@ yay -S starship
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-2. Install [Fish](http://fishshell.com) and [starship](https://starship.rs/) `cargo install starship`
+2. Install
+* [Fish](http://fishshell.com)
+* [Starship](https://starship.rs/) prompt `cargo install starship`
+* [FiraCode](https://github.com/tonsky/FiraCode/wiki/Installing) font
 
 ```sh
 brew install fish starship
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code
 ```
 
 3. Install [Fisherman](https://github.com/fisherman/fisherman)

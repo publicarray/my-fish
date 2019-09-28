@@ -1,4 +1,8 @@
-# 1. Install [fish](https://fishshell.com/) > 2.3 and [starship](https://starship.rs/) `cargo install starship`
+# 1. Install
+
+* [Fish](http://fishshell.com)
+* [Starship](https://starship.rs/) prompt `cargo install starship`
+* [FiraCode](https://github.com/tonsky/FiraCode/wiki/Installing) font
 
 ## macOS
 
@@ -6,6 +10,8 @@
 # install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install fish starship
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code
 ```
 
 ## Ubuntu
@@ -16,6 +22,10 @@ sudo apt-add-repository ppa:fish-shell/release-2
 # nightly -> sudo add-apt-repository ppa:fish-shell/nightly-master
 sudo apt-get update
 sudo apt-get install fish
+
+sudo add-apt-repository universe
+sudo apt-get update
+sudo apt install fonts-firacode
 ```
 
 ## Debian
@@ -33,12 +43,13 @@ apt-get install fish
 
 [https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
 
-
 ### Fedora
 
 ```sh
 dnf config-manager --add-repo http://download.opensuse.org/repositories/shells:fish:release:2/Fedora_25/shells:fish:release:2.repo
 dnf install fish
+dnf copr enable evana/fira-code-fonts
+dnf install fira-code-fonts
 ```
 
 ### CentOS
@@ -52,7 +63,7 @@ yum install fish
 ## Arch
 
 ```sh
-pacman -S fish
+pacman -S fish fira-code
 yay -S starship
 ```
 
@@ -60,6 +71,7 @@ yay -S starship
 
 ```sh
 emerge fish
+emerge -av media-fonts/fira-code
 ```
 
 ## Nix
