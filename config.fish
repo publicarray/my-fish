@@ -1,5 +1,5 @@
 if command -sq starship
-  eval (starship init fish)
+    source (starship init fish --print-full-init | psub)
 end
 
 # brew tap homebrew/command-not-found
