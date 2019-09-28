@@ -80,13 +80,13 @@ emerge -av media-fonts/fira-code
 nix-env -i fish starship
 ```
 
-# 2. Install [Fisherman](https://github.com/fisherman/fisherman)
+# 2. Install [fisher](https://github.com/jorgebucaran/fisher)
 
 ```sh
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 ```
 
-# 3. Install my-fish and other Fisherman plug-ins
+# 3. Install my-fish and other fisher plug-ins
 
 ```sh
 # execute this in the fish shell

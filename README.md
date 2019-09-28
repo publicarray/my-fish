@@ -1,12 +1,10 @@
 # My fish
 
-[![Slack Room][slack-badge]][slack-link]
-
-publicarray's fish aliases, functions and configuration for macOS
+publicarray's fish aliases, functions and configuration
 
 ## Install
 
-With [fisherman]
+With [fisher](https://github.com/jorgebucaran/fisher)
 
 The following command installs this repo and everything in [fishfile](https://github.com/publicarray/my-fish/blob/master/fishfile)
 
