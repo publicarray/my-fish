@@ -1,7 +1,7 @@
 function ps
   if command -sq grc
-    grc --colour=auto ps $argv
+    grc --colour=auto ps -x $argv
   else
-    command ps $argv
+    command ps -x $argv
   end
 end

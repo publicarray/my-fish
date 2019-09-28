@@ -1,7 +1,7 @@
 function du
   if command -sq grc
-    grc --colour=auto du $argv
+    grc --colour=auto du -h $argv
   else
-    command du $argv
+    command du -h $argv
   end
 end
