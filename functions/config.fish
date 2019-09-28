@@ -1,6 +1,5 @@
-if command -sq starship
-  eval (starship init fish)
-end
+alias kube kubectl
+alias text 'tail -f /dev/null'
 
 # brew tap homebrew/command-not-found
 if command -sq brew and brew which-formula

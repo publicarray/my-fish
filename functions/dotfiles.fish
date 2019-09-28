@@ -22,6 +22,8 @@ function dotfiles -d "Configure your dotfiles in your editor"
     eval $editor ~/.bash_profile
   else if test "$argv" = 'fish'
     eval $editor -n ~/.config/fish
+  else if test "$argv" = 'starship'
+    eval $editor -n ~/.config/starship.toml
   else if test "$argv" = 'zsh'
     eval $editor -n ~/.zshrc
     eval $editor ~/.zprofile

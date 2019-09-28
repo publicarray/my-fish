@@ -1,16 +1,11 @@
 function my-fish
 
-  if test (uname) != "Darwin"
-      printf "This script only runs on macOS"
-      exit 1
-  end
-
   # required:
-  #   brew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   #   fish: brew install fish
   #   fishermen: curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-  if not command -sq brew and not command -sq fish and not type -q fisher and not command -sq gem and not command -sq easy_install
-    echo "Error: missing requirements"
+  #   starship: brew install starship
+  if not command -sq starship and not command -sq fish and not type -q fisher and not command
+    echo "Error: missing requirements, starship"
     return 1
   end
 
@@ -18,20 +13,11 @@ function my-fish
   which fish | sudo tee -a /etc/shells
   chsh -s (which fish)
 
-  echo "Install extras so all commands work"
-  set -Ux HOMEBREW_NO_ANALYTICS 1
-  sudo easy_install -U Pygments
-  brew install wget coreutils z thefuck mas hub archey ruby composer php yarn tree grep ack unar \
-    iproute2mac grc gnutls git hub git-extras nano archey nmap ngrep lunchy terminal-notifier \
-    ripgrep exa bat topgrade
-    #php-cs-fixer shellcheck
-    #go rustup
-  brew install make --with-default-names
-  brew cask install gpgtools sublime-text-dev sublime-merge # fork docker
-  gem install bundler
+  echo "Set Environment Variables"
+  if command -sq brew
+    set -Ux HOMEBREW_NO_ANALYTICS 1
+  end
 
-  # echo "Install micro - a modern text editor <https://github.com/zyedidia/micro>"
-  # brew install micro
   set -Ux EDITOR nano
   set -Ux VISUAL $EDITOR
 
@@ -68,10 +54,10 @@ function my-fish
   set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
   set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
 
-  echo "Add GOPATH to \$PATH"
+  echo "Add GOPATH: $GOPATH to \$PATH"
   set -Ux GOPATH $HOME/go
   set -U fish_user_paths $fish_user_paths $GOPATH/bin
-  echo "Add rust/cargo to \$PATH"
+  echo "Add rust binaries (.cargo/bin) to \$PATH"
   set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
   path
 

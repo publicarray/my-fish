@@ -1,4 +1,12 @@
-# 1. Install [fish](https://fishshell.com/) > 2.3
+# 1. Install [fish](https://fishshell.com/) > 2.3 and [starship](https://starship.rs/) `cargo install starship`
+
+## macOS
+
+```sh
+# install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install fish starship
+```
 
 ## Ubuntu
 
@@ -25,12 +33,6 @@ apt-get install fish
 
 [https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
 
-### RHEL
-```sh
-cd /etc/yum.repos.d/
-wget http://download.opensuse.org/repositories/shells:fish:release:2/RedHat_RHEL-6/shells:fish:release:2.repo
-yum install fish
-```
 
 ### Fedora
 
@@ -51,6 +53,7 @@ yum install fish
 
 ```sh
 pacman -S fish
+yay -S starship
 ```
 
 ## Gentoo
@@ -59,26 +62,23 @@ pacman -S fish
 emerge fish
 ```
 
-## OpenSUSE
-
-[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
-
-# 2. Make fish your default shell
+## Nix
 
 ```sh
-echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-chsh -s /usr/bin/fish
+nix-env -i fish starship
 ```
 
-# 3. Install [Fisherman](https://github.com/fisherman/fisherman)
+# 2. Install [Fisherman](https://github.com/fisherman/fisherman)
 
 ```sh
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 ```
 
-# 4. Install my-fish, prompt and other Fisherman plug-ins
+# 3. Install my-fish and other Fisherman plug-ins
 
 ```sh
+# execute this in the fish shell
+fish
 fisher publicarray/my-fish
 my-fish
 ```
