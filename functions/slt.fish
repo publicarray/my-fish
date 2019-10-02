@@ -1,3 +1,7 @@
 function slt --description 'alias slt=subl'
-  subl $argv
+  if command -sq subl3
+    subl3 $argv
+  else
+    subl $argv
+  end
 end
