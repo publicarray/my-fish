@@ -5,4 +5,5 @@ function sleeping
   	xset dpms force off
   else
     echo "Not yet implmented for your OS"
+  end
 end
