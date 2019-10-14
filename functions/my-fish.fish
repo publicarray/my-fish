@@ -20,8 +20,8 @@ function my-fish
     set -Ux HOMEBREW_NO_ANALYTICS 1
   end
 
-  set -Ux EDITOR nano
-  set -Ux VISUAL $EDITOR
+  set -gx EDITOR nano
+  set -gx VISUAL $EDITOR
 
   echo "Set shell colours"
   set -U fish_color_normal normal # the default color
