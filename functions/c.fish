@@ -9,7 +9,7 @@ function c  --description 'colourful cat'
     #        yarn global add https://github.com/paulirish/c-cli
     pygmentize -O style=monokai -f console256 -g $argv
   else
-    echo c requires Pygments. Installing now with: `sudo easy_install -U Pygments`
-    sudo easy_install -U Pygments
+    echo "'c' requires Pygments or bat (https://github.com/sharkdp/bat)"
+    # sudo easy_install -U Pygments
   end
 end
