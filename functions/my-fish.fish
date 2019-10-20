@@ -20,8 +20,15 @@ function my-fish
     set -Ux HOMEBREW_NO_ANALYTICS 1
   end
 
-  set -gx EDITOR nano
-  set -gx VISUAL $EDITOR
+  if command -sq nano
+    set -Ux EDITOR nano
+    set -Ux VISUAL $EDITOR
+  end
+
+  echo "Link Sublime-Text command (subl)"
+  if test -f /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl
+    ln -n /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin
+  end
 
   echo "Set shell colours"
   set -U fish_color_normal normal # the default color
@@ -56,12 +63,42 @@ function my-fish
   set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
   set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
 
-  echo "Add GOPATH: $GOPATH to \$PATH"
-  set -Ux GOPATH $HOME/go
-  set -U fish_user_paths $fish_user_paths $GOPATH/bin
-  echo "Add rust binaries (.cargo/bin) to \$PATH"
-  set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+
+  if command -sq go
+    echo "Add GOPATH: $GOPATH to \$PATH"
+    set -Ux GOPATH $HOME/go
+    set -U fish_user_paths $fish_user_paths $GOPATH/bin
+  end
+
+  if command -sq cargo
+    echo "Add rust binaries (.cargo/bin) to \$PATH"
+    set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+  end
+
+  if command -sq composer
+    if test -n "$COMPOSER_HOME"
+      set -g COMPOSER_BIN_PATH $COMPOSER_HOME/vendor/bin
+    else if test -n "$XDG_CONFIG_HOME"
+      set -g COMPOSER_BIN_PATH $XDG_CONFIG_HOME/composer/vendor/bin
+    else if test -d "$HOME/.config/composer"
+      set -g COMPOSER_BIN_PATH $HOME/.config/composer/vendor/bin
+    else
+      set -g COMPOSER_BIN_PATH $HOME/.composer/vendor/bin
+    end
+    echo "Add composer binaries ($COMPOSER_BIN_PATH) to \$PATH"
+    if not contains "$COMPOSER_BIN_PATH" $PATH
+      set -U fish_user_paths $COMPOSER_BIN_PATH $fish_user_paths
+    end
+  end
+
+  if command -sq brew; and which -a ruby | grep -q 'ruby/bin/ruby'
+    echo "Add Homebrew ruby binaries to \$PATH"
+    set -U fish_user_paths (brew --prefix)"/opt/ruby/bin" $fish_user_paths
+  end
+
+  echo "Show paths"
   path
+  set --show fish_user_paths
 
   echo "Update completions"
   fish_update_completions
