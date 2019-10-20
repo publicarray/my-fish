@@ -1,3 +1,3 @@
-if command -sq starship
-    source (starship init fish --print-full-init | psub)
-end
+# if command -sq starship
+#     source (starship init fish --print-full-init | psub)
+# end
