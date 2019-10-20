@@ -1,5 +1,5 @@
 # brew tap homebrew/command-not-found
-if command -sq brew; and brew which-formula
+if command -sq brew; and test -d /usr/local/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/
     function __fish_command_not_found_handler --on-event fish_command_not_found
         set -l cmd $argv[1]
         set -l txt (brew which-formula --explain $cmd ^ /dev/null)
