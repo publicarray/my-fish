@@ -29,6 +29,9 @@ function my-fish
   if test -f /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl
     ln -n /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin
   end
+    if test -f /Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge
+    ln -s /Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge /usr/local/bin
+  end
 
   echo "Set shell colours"
   set -U fish_color_normal normal # the default color
@@ -91,9 +94,13 @@ function my-fish
     end
   end
 
-  if command -sq brew; and which -a ruby | grep -q 'ruby/bin/ruby'
-    echo "Add Homebrew ruby binaries to \$PATH"
-    set -U fish_user_paths (brew --prefix)"/opt/ruby/bin" $fish_user_paths
+  if command -sq brew;
+    echo "Add Homebrew binaries to \$PATH"
+    set -U fish_user_paths (brew --prefix)"/sbin" $fish_user_paths
+    if which -a ruby | grep -q 'ruby/bin/ruby'
+      echo "Add Homebrew ruby binaries to \$PATH"
+      set -U fish_user_paths (brew --prefix)"/opt/ruby/bin" $fish_user_paths
+    end
   end
 
   echo "Show paths"
