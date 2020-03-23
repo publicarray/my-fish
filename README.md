@@ -52,6 +52,7 @@ yay -S starship
 brew install fish starship
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
+# brew cask install font-firacode-nerd-font
 ```
 
 3. Install [Fisherman](https://github.com/fisherman/fisherman)
