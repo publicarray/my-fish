@@ -4,7 +4,7 @@ oh-my-fish/plugin-php
 Shadowigor/plugin-errno-grep
 barnybug/docker-fish-completion
 franciscolourenco/done
-orefalo/free
+publicarray/free@patch-1
 orefalo/g2
 sijad/gitignore
 jethrokuan/z
