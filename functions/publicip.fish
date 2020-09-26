@@ -3,9 +3,10 @@ function publicip
     set ip (dig +short myip.opendns.com @resolver1.opendns.com)
   end
   if set -q ip and test -n "$ip"
-    echo ip
+    echo $ip
   else
-    curl -qs https://checkip.amazonaws.com/
+    # curl -qs https://checkip.amazonaws.com/
+    curl -qs https://ip.seby.io/
     # curl -qs https://icanhazip.com
     #  curl -qs https://ipv4.icanhazip.com
     #  curl -qs https://ipv6.icanhazip.com
