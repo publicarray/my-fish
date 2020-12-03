@@ -13,7 +13,7 @@ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fi
 ```
 
 ```sh
-fisher add publicarray/my-fish
+fisher install publicarray/my-fish
 ```
 
 Configure shell to my preferences
