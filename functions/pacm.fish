@@ -1,4 +1,4 @@
-function pacm --description 'alias pacm to a AUR helper/pacman wrapper'
+function pacm --description 'alias to a AUR helper/pacman wrapper'
   # I just can't remeber them when I need them
   # pacm (pacman just shorter)
 

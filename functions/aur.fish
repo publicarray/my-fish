@@ -1,4 +1,4 @@
-function aur --description 'alias aur to a AUR helper/pacman wrapper'
+function aur --description 'alias to a AUR helper/pacman wrapper'
   if command -sq aur
     # fallback if command already exists
     aur $argv;
