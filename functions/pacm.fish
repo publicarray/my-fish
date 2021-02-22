@@ -26,6 +26,9 @@ function pacm --description 'alias to a AUR helper/pacman wrapper'
   else if command -sq rua
     # AUR helper in Rust providing control, review, patch application and safe build options.
     rua $argv;
+  else if command -sq aur
+    # aurutils: helper tools for the arch user repository
+    aur $argv;
   else if command -sq pamac
     # A Gtk3 frontend, Package Manager based on libalpm with AUR and Appstream support
     pamac $argv;
