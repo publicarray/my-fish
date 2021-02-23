@@ -27,6 +27,7 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
     set WEBROOT "$argv[1]"
   end
   echo "🌐 Starting webserver at http://$HOST:$PORT"
+  open "http://127.0.0.1:$PORT/" &
 
   if command -sq serve
     # https://github.com/syntaqx/serve
