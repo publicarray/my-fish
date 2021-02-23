@@ -51,6 +51,9 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
   else if command -sq www
     # https://github.com/nbari/www
     www -p $PORT
+  else if command -sq npx
+    # node.js
+    npx statikk --port $PORT
   else if command -sq php
     php -S $HOST:$PORT
   else if command -sq python
