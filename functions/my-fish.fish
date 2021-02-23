@@ -66,11 +66,17 @@ function my-fish
   set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
   set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
 
+  if command -sq yarn
+    set yarn_globals (yarn global bin 2>/dev/null)
+    echo "Add yarn global packages $yarn_globals to \$PATH"
+    set -U fish_user_paths $fish_user_paths $yarn_globals
+  end
 
   if command -sq go
     echo "Add GOPATH: $GOPATH to \$PATH"
-    set -Ux GOPATH $HOME/go
+    set -Ux GOPATH $HOME/.go
     set -U fish_user_paths $fish_user_paths $GOPATH/bin
+    mkdir -p $GOPATH
   end
 
   if command -sq cargo
