@@ -3,7 +3,13 @@ function lock
     if test $OSTYPE = "Darwin"
         /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
     else if test $OSTYPE = "Linux"
-        echo "Not yet implemented"
+        if command -sq xdg-screensaver
+            xdg-screensaver lock
+        else if command -sq loginctl
+            loginctl lock-session
+        else
+            echo "Not yet implemented"
+        end
     else
         echo "Unknown OS"
     end
