@@ -1,23 +1,23 @@
-* [Quick Start](#quick-start)
-* [Prepare installation on a new machine](#prepare-installation-on-a-new-machine)
-    + [1. Dependencies](#1-dependencies)
-    + [macOS](#macos)
-    + [Ubuntu](#ubuntu)
-    + [Debian](#debian)
-    + [Arch](#arch)
-    + [RedHat (Fedora / CentOS)](#redhat--fedora---centos-)
-        - [Fedora](#fedora)
-        - [CentOS](#centos)
-    + [Gentoo](#gentoo)
-    + [Nix](#nix)
-    * [2. Install fisher](#2-install-fisher)
-    * [3. Install my-fish and run my-fish](#3-install-my-fish-and-run-my-fish)
-
 # My fish
 
 publicarray's fish aliases, functions and configuration
 
-## Quick Start
+* [Quick Start](#quick-start)
+* [Prepare installation on a new machine](#prepare-installation-on-a-new-machine)
+    + [1. Dependencies](#1-dependencies)
+        + [macOS](#macos)
+        + [Ubuntu](#ubuntu)
+        + [Debian](#debian)
+        + [Arch](#arch)
+        + [RedHat (Fedora / CentOS)](#redhat--fedora---centos-)
+            - [Fedora](#fedora)
+            - [CentOS](#centos)
+        + [Gentoo](#gentoo)
+        + [Nix](#nix)
+    * [2. Install fisher](#2-install-fisher)
+    * [3. Install my-fish and run my-fish](#3-install-my-fish-and-run-my-fish)
+
+# Quick Start
 
 With [fisher](https://github.com/jorgebucaran/fisher)
 
@@ -39,9 +39,9 @@ Configure shell to my preferences
 my-fish
 ```
 
-## Prepare installation on a new machine
+# Prepare installation on a new machine
 
-### 1. Dependencies
+## 1. Dependencies
 
 * [Fish](http://fishshell.com)
 * [Fisher](https://github.com/jorgebucaran/fisher)
