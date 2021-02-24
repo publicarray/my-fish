@@ -142,7 +142,7 @@ yay -S starship nerd-fonts-fira-code
 #### Fedora
 
 ```sh
-dnf install fish
+dnf install fish rust-starship
 dnf copr enable evana/fira-code-fonts
 dnf install fira-code-fonts
 ```
@@ -158,7 +158,7 @@ yum install fish
 ### Gentoo
 
 ```sh
-emerge fish
+emerge fish app-shells/starship
 emerge -av media-fonts/fira-code
 ```
 
@@ -174,6 +174,10 @@ nix-env -i fish starship
 
 ```sh
 pkg install fish
+portsnap fetch extract
+portsnap fetch update
+cd /usr/ports/shells/starship
+make install clean
 ```
 
 ## 2. Install [fisher](https://github.com/jorgebucaran/fisher)
