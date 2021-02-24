@@ -1,3 +1,3 @@
 function mem
-  ram $argv
+    ram $argv
 end

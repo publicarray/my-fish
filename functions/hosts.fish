@@ -1,3 +1,3 @@
 function hosts
-  sudo $EDITOR /etc/hosts
+    sudo $EDITOR /etc/hosts
 end

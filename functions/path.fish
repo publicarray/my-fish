@@ -1,3 +1,3 @@
 function path
-  printf "%s\n" $PATH
+    printf "%s\n" $PATH
 end
