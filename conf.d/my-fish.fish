@@ -7,6 +7,7 @@ set -a -g _myfish_pkg barnybug/docker-fish-completion
 set -a -g _myfish_pkg franciscolourenco/done
 set -a -g _myfish_pkg publicarray/free@patch-1
 set -a -g _myfish_pkg orefalo/g2
+set -a -g _myfish_pkg sijad/gitignore
 set -a -g _myfish_pkg jethrokuan/z
 set -a -g _myfish_pkg publicarray/update
 set -a -g _myfish_pkg jorgebucaran/autopair.fish
