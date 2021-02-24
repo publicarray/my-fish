@@ -10,7 +10,7 @@
         - [CentOS](#centos)
     + [Gentoo](#gentoo)
     + [Nix](#nix)
-    * [2. Install [fisher](https://github.com/jorgebucaran/fisher)](#2-install--fisher--https---githubcom-jorgebucaran-fisher-)
+    * [2. Install fisher](#2-install-fisher)
     * [3. Install my-fish and run my-fish](#3-install-my-fish-and-run-my-fish)
 
 # My fish
