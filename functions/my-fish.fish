@@ -10,7 +10,9 @@ function my-fish
     end
 
     echo "Make fish your default shell"
-    which fish | sudo tee -a /etc/shells
+    if ! grep -q (which fish) /etc/shells
+        which fish | sudo tee -a /etc/shells
+    end
     chsh -s (which fish)
 
     echo "Set Environment Variables"
@@ -66,6 +68,7 @@ function my-fish
     set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
     set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
 
+    echo "Update PATH"
     if command -sq yarn
         set yarn_globals (yarn global bin 2>/dev/null)
         echo "Add yarn global packages $yarn_globals to \$PATH"

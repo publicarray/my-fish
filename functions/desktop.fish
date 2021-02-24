@@ -5,19 +5,21 @@ function desktop -d "hide/show your desktop icons"
         return 1
     end
 
+    set showdesktop = false
+    if test $argv = 'show' or test $argv = 'true' or test $argv = 'yes'
+        set showdesktop = true
+    end
+
     test -z "$OSTYPE"; and set OSTYPE (uname)
     if test $OSTYPE = "Darwin"
-        if test $argv = 'show'
-            defaults write com.apple.finder CreateDesktop -bool true
-            killall Finder
-        else if test $argv = 'hide'
-            defaults write com.apple.finder CreateDesktop -bool false
-            killall Finder
-        end
+        defaults write com.apple.finder CreateDesktop -bool $showdesktop
+        killall Finder
     else if test $OSTYPE = "Linux"
         echo "Not yet implemented"
+        # gsettings set org.mate.background show-desktop-icons $showdesktop
+        # gsettings set org.gnome.desktop.background $showdesktop
     else
         echo "Unknown OS"
     end
-
 end
+

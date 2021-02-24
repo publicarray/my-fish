@@ -2,15 +2,15 @@
 
 publicarray's fish aliases, functions and configuration
 
-## Install
+## Quick Start
 
 With [fisher](https://github.com/jorgebucaran/fisher)
 
-The following command installs this repo and everything in [fishfile](https://github.com/publicarray/my-fish/blob/master/fishfile)
-
-```sh
-curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 ```
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+```
+
+The following command installs this repo and [common fish packages that I use](https://github.com/publicarray/my-fish/blob/master/conf.d/my-fish.fish)
 
 ```sh
 fisher install publicarray/my-fish
@@ -24,53 +24,30 @@ Configure shell to my preferences
 my-fish
 ```
 
-## Install on your favourite Linux Distro
+## 1. Prepare installation on a new machine
 
-see [linux.md](linux.md)
+### Dependencies
 
-### Arch
-
-```sh
-pacman -S fish
-yay -S starship
-```
-
-## Install on a brand new macOS machine
-
-1. Install [homebrew](https://brew.sh/)
-
-```sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-2. Install
 * [Fish](http://fishshell.com)
+* [Fisher](https://github.com/jorgebucaran/fisher)
 * [Starship](https://starship.rs/) prompt `cargo install starship`
 * [FiraCode](https://github.com/tonsky/FiraCode/wiki/Installing) font
 
+
+### macOS
+
+* Install [homebrew](https://brew.sh/)
+
 ```sh
+# install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install fish starship
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
 # brew cask install font-firacode-nerd-font
 ```
 
-3. Install [Fisherman](https://github.com/fisherman/fisherman)
-
-```sh
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-```
-
-4. Install my-fish and other Fisherman plug-ins
-
-```sh
-# execute this in the fish shell
-fish
-fisher publicarray/my-fish
-my-fish
-```
-
-5. (Optional) Install extras so all commands work
+* (Optional) Install extra commands
 
 ```sh
 # set -Ux HOMEBREW_NO_ANALYTICS 1
@@ -85,7 +62,7 @@ gem install bundler
 sudo easy_install -U Pygments
 ```
 
-6. (Optional) try other editors [micro - a modern text editor](https://github.com/zyedidia/micro)
+* (Optional) try other editors [micro - a modern text editor](https://github.com/zyedidia/micro)
 
 ```sh
 brew install micro
@@ -101,6 +78,83 @@ set -Ux EDITOR ne
 set -Ux VISUAL $EDITOR
 ```
 
-[slack-link]: https://fisherman-wharf.herokuapp.com
-[slack-badge]: https://fisherman-wharf.herokuapp.com/badge.svg
-[fisherman]: https://github.com/fisherman/fisherman
+### Ubuntu
+
+```sh
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:fish-shell/release-2
+# nightly -> sudo add-apt-repository ppa:fish-shell/nightly-master
+sudo apt-get update
+sudo apt-get install fish
+
+sudo add-apt-repository universe
+sudo apt-get update
+sudo apt install fonts-firacode
+```
+
+### Debian
+
+[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
+
+
+```sh
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_8.0/ /' > /etc/apt/sources.list.d/fish.list
+apt-get update
+apt-get install fish
+```
+
+### Arch
+
+```sh
+pacman -S fish fira-code
+yay -S starship
+```
+
+### RedHat (Fedora / CentOS)
+
+[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
+
+#### Fedora
+
+```sh
+dnf config-manager --add-repo http://download.opensuse.org/repositories/shells:fish:release:2/Fedora_25/shells:fish:release:2.repo
+dnf install fish
+dnf copr enable evana/fira-code-fonts
+dnf install fira-code-fonts
+```
+
+#### CentOS
+
+```sh
+cd /etc/yum.repos.d/
+wget http://download.opensuse.org/repositories/shells:fish:release:2/CentOS_7/shells:fish:release:2.repo
+yum install fish
+```
+
+### Gentoo
+
+```sh
+emerge fish
+emerge -av media-fonts/fira-code
+```
+
+### Nix
+
+```sh
+nix-env -i fish starship
+```
+
+## 2. Install [fisher](https://github.com/jorgebucaran/fisher)
+
+```sh
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+```
+
+## 3. Install my-fish and run my-fish
+
+```sh
+# execute this in the fish shell
+fish
+fisher publicarray/my-fish
+my-fish
+```

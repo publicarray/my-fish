@@ -13,19 +13,19 @@ set -a -g _myfish_pkg publicarray/update
 set -a -g _myfish_pkg jorgebucaran/autopair.fish
 
 function _my-fish_install --on-event my-fish_install
-  echo "Installing dependent packages ..."
-  for pkg in $_myfish_pkg
-    fisher install "$pkg"
-  end
+    echo "Installing dependent packages ..."
+    for pkg in $_myfish_pkg
+        fisher install "$pkg"
+    end
 end
 
 function _my-fish_update --on-event my-fish_update
-  # Migrate resources, print warnings, and other update logic.
+    # Migrate resources, print warnings, and other update logic.
 end
 
 function _my-fish_uninstall --on-event my-fish_uninstall
-  echo "Removing dependent packages ..."
-  for pkg in $_myfish_pkg
-    fisher remove "$pkg"
-  end
+    echo "Removing dependent packages ..."
+    for pkg in $_myfish_pkg
+        fisher remove "$pkg"
+    end
 end
