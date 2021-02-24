@@ -52,6 +52,7 @@ my-fish
 ### macOS
 
 * Install [homebrew](https://brew.sh/)
+* Install [fish](https://fishshell.com/#get_fish_osx)
 
 ```sh
 # install homebrew
@@ -95,25 +96,29 @@ set -Ux VISUAL $EDITOR
 
 ### Ubuntu
 
+* Install [fish](https://fishshell.com/#get_fish_linux)
+
 ```sh
-sudo apt-get install software-properties-common
-sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt install software-properties-common
+sudo apt-add-repository ppa:fish-shell/release-3
 # nightly -> sudo add-apt-repository ppa:fish-shell/nightly-master
-sudo apt-get update
-sudo apt-get install fish
+sudo apt update
+sudo apt install fish
 
 sudo add-apt-repository universe
-sudo apt-get update
+sudo apt update
 sudo apt install fonts-firacode
 ```
 
 ### Debian
 
+* Install [fish](https://fishshell.com/#get_fish_linux)
+
 [https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
 
 
 ```sh
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_8.0/ /' > /etc/apt/sources.list.d/fish.list
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list
 apt-get update
 apt-get install fish
 ```
@@ -121,7 +126,7 @@ apt-get install fish
 ### Arch
 
 ```sh
-pacman -S fish
+sudo pacman -S fish
 # one of the following fonts
 # https://aur.archlinux.org/packages/?K=nerd-fonts&SB=p
 yay -S starship nerd-fonts-fira-code
@@ -129,12 +134,13 @@ yay -S starship nerd-fonts-fira-code
 
 ### RedHat (Fedora / CentOS)
 
+* Install [fish](https://fishshell.com/#get_fish_linux)
+
 [https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
 
 #### Fedora
 
 ```sh
-dnf config-manager --add-repo http://download.opensuse.org/repositories/shells:fish:release:2/Fedora_25/shells:fish:release:2.repo
 dnf install fish
 dnf copr enable evana/fira-code-fonts
 dnf install fira-code-fonts
@@ -144,7 +150,7 @@ dnf install fira-code-fonts
 
 ```sh
 cd /etc/yum.repos.d/
-wget http://download.opensuse.org/repositories/shells:fish:release:2/CentOS_7/shells:fish:release:2.repo
+wget https://download.opensuse.org/repositories/shells:fish:release:3/CentOS_8/shells:fish:release:3.repo
 yum install fish
 ```
 
@@ -159,6 +165,14 @@ emerge -av media-fonts/fira-code
 
 ```sh
 nix-env -i fish starship
+```
+
+### FreeBSD
+
+* Install [fish](https://fishshell.com/#get_fish_bsd)
+
+```sh
+pkg install fish
 ```
 
 ## 2. Install [fisher](https://github.com/jorgebucaran/fisher)
