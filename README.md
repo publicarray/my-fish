@@ -1,3 +1,18 @@
+* [Quick Start](#quick-start)
+* [Prepare installation on a new machine](#prepare-installation-on-a-new-machine)
+    + [1. Dependencies](#1-dependencies)
+    + [macOS](#macos)
+    + [Ubuntu](#ubuntu)
+    + [Debian](#debian)
+    + [Arch](#arch)
+    + [RedHat (Fedora / CentOS)](#redhat--fedora---centos-)
+        - [Fedora](#fedora)
+        - [CentOS](#centos)
+    + [Gentoo](#gentoo)
+    + [Nix](#nix)
+    * [2. Install [fisher](https://github.com/jorgebucaran/fisher)](#2-install--fisher--https---githubcom-jorgebucaran-fisher-)
+    * [3. Install my-fish and run my-fish](#3-install-my-fish-and-run-my-fish)
+
 # My fish
 
 publicarray's fish aliases, functions and configuration
@@ -24,14 +39,14 @@ Configure shell to my preferences
 my-fish
 ```
 
-## 1. Prepare installation on a new machine
+## Prepare installation on a new machine
 
-### Dependencies
+### 1. Dependencies
 
 * [Fish](http://fishshell.com)
 * [Fisher](https://github.com/jorgebucaran/fisher)
 * [Starship](https://starship.rs/) prompt `cargo install starship`
-* [FiraCode](https://github.com/tonsky/FiraCode/wiki/Installing) font
+* A [Nerd Font](https://www.nerdfonts.com/) font installed and enabled in your terminal (for example, try the [Fira Code Nerd Font](https://www.nerdfonts.com/font-downloads))
 
 
 ### macOS
@@ -106,8 +121,10 @@ apt-get install fish
 ### Arch
 
 ```sh
-pacman -S fish fira-code
-yay -S starship
+pacman -S fish
+# one of the following fonts
+# https://aur.archlinux.org/packages/?K=nerd-fonts&SB=p
+yay -S starship nerd-fonts-fira-code
 ```
 
 ### RedHat (Fedora / CentOS)
