@@ -14,6 +14,7 @@ publicarray's fish aliases, functions and configuration
             - [CentOS](#centos)
         + [Gentoo](#gentoo)
         + [Nix](#nix)
+        + [FreeBSD](#freebsd)
     * [2. Install fisher](#2-install-fisher)
     * [3. Install my-fish and run my-fish](#3-install-my-fish-and-run-my-fish)
 
