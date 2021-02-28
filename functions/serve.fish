@@ -31,9 +31,11 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
 
     if command -sq serve
         # https://github.com/syntaqx/serve
+        # go get github.com/syntaqx/serve
         serve --host $HOST --port $PORT
     else if command -sq sfz
         # https://github.com/weihanglo/sfz
+        # cargo install sfz
         sfz -b $HOST -p $PORT
     else if command -sq http
         # https://github.com/thecoshman/http
@@ -44,17 +46,21 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
         # cargo install see
         see start -b $HOST:$PORT -p $WEBROOT
     else if command -sq darkhttpd
-        # https://github.com/rif/spark
+        # https://github.com/emikulic/darkhttpd
+        # C
         darkhttpd $WEBROOT --addr $HOST -port $PORT
     else if command -sq http-server
         # https://github.com/http-party/http-server
         # https://www.npmjs.com/package/http-server
+        # npm install http-server
         http-server -a $HOST -p $PORT
     else if command -sq statikk
         # https://github.com/paulirish/statikk
+        # npm install statikk
         statikk --port $PORT
     else if command -sq www
         # https://github.com/nbari/www
+        # go get github.com/nbari/www
         www -p $PORT -r $WEBROOT
     else if command -sq npx
         # node.js
