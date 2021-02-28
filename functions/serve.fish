@@ -39,6 +39,10 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
         # https://github.com/thecoshman/http
         # cargo install https
         httplz -s
+    else if command -sq see
+        # https://github.com/wyhaya/see
+        # cargo install see
+        see start -b $HOST:$PORT -p $WEBROOT
     else if command -sq darkhttpd
         # https://github.com/rif/spark
         darkhttpd $WEBROOT --addr $HOST -port $PORT
