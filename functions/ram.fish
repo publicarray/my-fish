@@ -9,7 +9,7 @@ function ram
         echo "First argument - pattern to grep from processes"
     else
         set sum 0
-        for i in (ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}')
+        for i in (command ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}')
             set sum (math $i + $sum)
         end
         set sum (echo "scale=2; $sum / 1024.0" | bc)
