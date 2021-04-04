@@ -6,7 +6,15 @@ if command -sq starship
             case '*'
                 set keymap insert
         end
-        starship prompt --status=$status --keymap=$keymap --cmd-duration=(math --scale=0 "$CMD_DURATION / 1000") --jobs=(count (jobs -p))
+        starship prompt --status=$status --keymap=$keymap --cmd-duration=(math --scale=0 "$CMD_DURATION") --jobs=(count (jobs -p))
     end
+
+    # disable virtualenv prompt, it breaks starship
+    set VIRTUAL_ENV_DISABLE_PROMPT 1
+
+    function fish_mode_prompt; end
     export STARSHIP_SHELL="fish"
+
+    # Set up the session key that will be used to store logs
+    # export STARSHIP_SESSION_KEY=("/usr/local/bin/starship" session)
 end
