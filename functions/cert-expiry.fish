@@ -17,16 +17,20 @@ function cert-expiry --description 'Show certificate expiry information. usage: 
     set current_time (date "+%s")
     set remaining (math "(($cert_end_time - $current_time) / 60 / 60 / 24)")
 
-    echo Certificate exirary date: (date -d "$cert_end_date")
+    echo Certificate expiry date: (date -d "$cert_end_date")
     printf "Certificate expires in $bold%.0f$reset days\n" $remaining
     if [ $remaining -gt 30 ]
-        printf "$green%s$reset\n" "Certificate is valid for over 1 month 👍"
-    else if [ $remaining -lt 10 ]
-        printf "$yellow%s$reset\n" "⚠ Certificate is expiring soon!"
+        printf "$green%s %s %s$reset\n" "Certificate" $argv[1] "is valid for over 1 month 👍"
+    else if [ $remaining -le 10 ] && [ $remaining -gt 5 ]
+        printf "$yellow%s %s %s$reset\n" "⚠ Certificate" $argv[1] "is expiring soon!"
         return 2
-    else if [ $remaining -lt 5 ]
-        set print_str "$red%s$reset"
-        printf "$red$bold%s$reset\n" "⚠ Certificate is expiring very soon!!! 🔥"
+    else if [ $remaining -le 5 ] && [ $remaining -gt 0 ]
+        printf "$red$bold%s %s %s$reset\n" "⚠ Certificate" $argv[1] "is expiring very soon!!! 🔥"
         return 1
+    else if [ $remaining -le 0 ]
+        printf "$red$bold%s %s %s$reset\n" "🛑 Certificate" $argv[1] "has expired!!! 🛑"
+        return 1
+    else
+        printf "$bold%s %s %s$reset\n" "Certificate" $argv[1] "is valid for less than 1 month ℹ"
     end
 end
