@@ -31,6 +31,7 @@ function cert-expiry --description 'Show certificate expiry information. usage: 
         printf "$red$bold%s %s %s$reset\n" "🛑 Certificate" $argv[1] "has expired!!! 🛑"
         return 1
     else
-        printf "$bold%s %s %s$reset\n" "Certificate" $argv[1] "is valid for less than 1 month ℹ"
+        printf "$bold%s %s %s$reset\n" "Certificate" $argv[1] "is valid for less than 1 month 🙊"
+        return 3
     end
 end
