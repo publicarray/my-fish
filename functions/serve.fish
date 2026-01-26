@@ -40,7 +40,7 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
     else if command -sq httplz
         # https://github.com/thecoshman/http
         # cargo install https
-        httplz -s
+        httplz -s -a $HOST -p $PORT $WEBROOT
     else if command -sq see
         # https://github.com/wyhaya/see
         # cargo install see
@@ -68,7 +68,7 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
     else if command -sq php
         php -S $HOST:$PORT
     else if command -sq python
-        python -m http.server $PORT --bind 127.0.0.1
+        python -m http.server $PORT --bind $HOST
     else if command -sq busybox
         busybox httpd -f -p $PORT
     end
