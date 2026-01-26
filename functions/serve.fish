@@ -31,13 +31,13 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
 
     if command -sq serve
         # https://github.com/syntaqx/serve
-        # go get github.com/syntaqx/serve
-        serve --host $HOST --port $PORT
+        # go install github.com/syntaqx/serve/cmd/serve@latest
+        command serve --host $HOST --port $PORT
     else if command -sq sfz
         # https://github.com/weihanglo/sfz
         # cargo install sfz
         sfz -b $HOST -p $PORT
-    else if command -sq http
+    else if command -sq httplz
         # https://github.com/thecoshman/http
         # cargo install https
         httplz -s
