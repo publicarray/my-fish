@@ -40,6 +40,20 @@ Configure shell to my preferences
 my-fish
 ```
 
+Apply my gnome-terminal palette (stock Adwaita reworked for a dark background:
+a much brighter bright-blue, and a yellow that isn't brown)
+
+```sh
+terminal-colours        # write the palette to the default profile
+terminal-colours export # dump the current gnome-terminal dconf settings
+terminal-colours-test   # colour test pattern: palette, attributes, 256 cube, truecolor
+```
+
+The full profile dump lives in [terminal/gnome-terminal.dconf](terminal/gnome-terminal.dconf)
+and can be restored with `dconf load /org/gnome/terminal/ < terminal/gnome-terminal.dconf`
+(that also restores the window size and profile name, and only matches a profile
+with the same UUID).
+
 # Prepare installation on a new machine
 
 ## 1. Dependencies

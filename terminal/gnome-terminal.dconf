@@ -1,0 +1,8 @@
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(23,20,33)'
+default-size-columns=95
+default-size-rows=28
+foreground-color='rgb(208,207,204)'
+palette=['#171421', '#c01c28', '#199a3d', '#d58f27', '#2356c4', '#a347ba', '#2894a5', '#d0cfcc', '#5e5c64', '#f25b4b', '#33d17a', '#eeb211', '#4695f6', '#c061cb', '#43d6ec', '#ffffff']
+use-theme-colors=true
+visible-name='publicarray'
