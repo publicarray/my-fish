@@ -1,63 +1,63 @@
 # name: 'publicarray'
 [dark]
 # preferred_background: #1E1E1E
-fish_color_autosuggestion 555 --theme=publicarray
-fish_color_cancel -r --theme=publicarray
-fish_color_command green --theme=publicarray
-fish_color_comment 555 --theme=publicarray
-fish_color_cwd blue --theme=publicarray
-fish_color_cwd_root red --theme=publicarray
-fish_color_end normal --theme=publicarray
-fish_color_error red --bold --theme=publicarray
-fish_color_escape cyan --theme=publicarray
-fish_color_history_current --bold --theme=publicarray
-fish_color_host normal --theme=publicarray
-fish_color_host_remote yellow --theme=publicarray
-fish_color_match purple --background=303030 --theme=publicarray
-fish_color_normal normal --theme=publicarray
-fish_color_operator normal --theme=publicarray
-fish_color_param normal --theme=publicarray
-fish_color_quote yellow --theme=publicarray
-fish_color_redirection normal --theme=publicarray
-fish_color_search_match --background=0A0682 --theme=publicarray
-fish_color_selection white --bold --background=brblack --theme=publicarray
-fish_color_status red --theme=publicarray
-fish_color_user brgreen --theme=publicarray
-fish_color_valid_path --underline --theme=publicarray
-fish_pager_color_completion normal --theme=publicarray
-fish_pager_color_description 777 yellow --theme=publicarray
-fish_pager_color_prefix red --theme=publicarray
-fish_pager_color_progress cyan --theme=publicarray
-fish_pager_color_secondary cyan --theme=publicarray
-fish_pager_color_selected_background -r --theme=publicarray
+fish_color_autosuggestion 555
+fish_color_cancel -r
+fish_color_command green
+fish_color_comment 555
+fish_color_cwd blue
+fish_color_cwd_root red
+fish_color_end normal
+fish_color_error red --bold
+fish_color_escape cyan
+fish_color_history_current --bold
+fish_color_host normal
+fish_color_host_remote yellow
+fish_color_match purple --background=303030
+fish_color_normal normal
+fish_color_operator normal
+fish_color_param normal
+fish_color_quote yellow
+fish_color_redirection normal
+fish_color_search_match --background=0A0682
+fish_color_selection white --bold --background=brblack
+fish_color_status red
+fish_color_user brgreen
+fish_color_valid_path --underline
+fish_pager_color_completion normal
+fish_pager_color_description 777 yellow
+fish_pager_color_prefix red
+fish_pager_color_progress cyan
+fish_pager_color_secondary cyan
+fish_pager_color_selected_background -r
 
 [unknown]
-fish_color_autosuggestion 555 --theme=publicarray
-fish_color_cancel -r --theme=publicarray
-fish_color_command green --theme=publicarray
-fish_color_comment 555 --theme=publicarray
-fish_color_cwd blue --theme=publicarray
-fish_color_cwd_root red --theme=publicarray
-fish_color_end normal --theme=publicarray
-fish_color_error red --bold --theme=publicarray
-fish_color_escape cyan --theme=publicarray
-fish_color_history_current --bold --theme=publicarray
-fish_color_host normal --theme=publicarray
-fish_color_host_remote yellow --theme=publicarray
-fish_color_match purple --background=303030 --theme=publicarray
-fish_color_normal normal --theme=publicarray
-fish_color_operator normal --theme=publicarray
-fish_color_param normal --theme=publicarray
-fish_color_quote yellow --theme=publicarray
-fish_color_redirection normal --theme=publicarray
-fish_color_search_match --background=0A0682 --theme=publicarray
-fish_color_selection white --bold --background=brblack --theme=publicarray
-fish_color_status red --theme=publicarray
-fish_color_user brgreen --theme=publicarray
-fish_color_valid_path --underline --theme=publicarray
-fish_pager_color_completion normal --theme=publicarray
-fish_pager_color_description 777 yellow --theme=publicarray
-fish_pager_color_prefix red --theme=publicarray
-fish_pager_color_progress cyan --theme=publicarray
-fish_pager_color_secondary cyan --theme=publicarray
-fish_pager_color_selected_background -r --theme=publicarray
+fish_color_autosuggestion 555
+fish_color_cancel -r
+fish_color_command green
+fish_color_comment 555
+fish_color_cwd blue
+fish_color_cwd_root red
+fish_color_end normal
+fish_color_error red --bold
+fish_color_escape cyan
+fish_color_history_current --bold
+fish_color_host normal
+fish_color_host_remote yellow
+fish_color_match purple --background=303030
+fish_color_normal normal
+fish_color_operator normal
+fish_color_param normal
+fish_color_quote yellow
+fish_color_redirection normal
+fish_color_search_match --background=0A0682
+fish_color_selection white --bold --background=brblack
+fish_color_status red
+fish_color_user brgreen
+fish_color_valid_path --underline
+fish_pager_color_completion normal
+fish_pager_color_description 777 yellow
+fish_pager_color_prefix red
+fish_pager_color_progress cyan
+fish_pager_color_secondary cyan
+fish_pager_color_selected_background -r
