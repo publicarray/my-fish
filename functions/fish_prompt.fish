@@ -1,4 +1,12 @@
 if command -sq starship
+    # Old starship (pre-0.45) has no --pipestatus; probe once at autoload.
+    # Empty list, not empty string: it must expand to zero arguments below.
+    if starship prompt --help 2>&1 | string match -q -- '*--pipestatus*'
+        set -g __my_starship_pipestatus_flag --pipestatus
+    else
+        set -g __my_starship_pipestatus_flag
+    end
+
     function fish_prompt
         switch "$fish_key_bindings"
             case fish_hybrid_key_bindings fish_vi_key_bindings fish_helix_key_bindings
@@ -6,7 +14,11 @@ if command -sq starship
             case '*'
                 set STARSHIP_KEYMAP insert
         end
-        starship prompt --status=$status --pipestatus=$pipestatus --keymap=$STARSHIP_KEYMAP --cmd-duration=(math --scale=0 "$CMD_DURATION") --jobs=(jobs -g 2>/dev/null | count)
+
+        starship prompt --status=$status $__my_starship_pipestatus_flag="$pipestatus" \
+            --keymap=$STARSHIP_KEYMAP \
+            --cmd-duration=(math --scale=0 "$CMD_DURATION") \
+            --jobs=(jobs -g 2>/dev/null | count)
     end
 
     # Disable virtualenv prompt, it breaks starship
