@@ -288,6 +288,22 @@ Remove-Item Alias:ps -Force -ErrorAction SilentlyContinue
 function ps { procs @args }
 function http { xh @args }
 function ff { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
+
+# safer rm: moves to the Recycle Bin instead of deleting outright
+Add-Type -AssemblyName Microsoft.VisualBasic
+Remove-Item Alias:rm -Force -ErrorAction SilentlyContinue
+function rm {
+    param([Parameter(ValueFromRemainingArguments)]$Paths)
+    foreach ($p in $Paths) {
+        $full = Resolve-Path $p -ErrorAction SilentlyContinue
+        if (-not $full) { Write-Error "rm: cannot remove '$p': No such file or directory"; continue }
+        if (Test-Path $full -PathType Container) {
+            [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory($full, 'OnlyErrorDialogs', 'SendToRecycleBin')
+        } else {
+            [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile($full, 'OnlyErrorDialogs', 'SendToRecycleBin')
+        }
+    }
+}
 ```
 
 ## 2. Install [fisher](https://github.com/jorgebucaran/fisher)
