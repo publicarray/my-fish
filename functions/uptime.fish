@@ -1,7 +1,3 @@
 function uptime
-    if command -sq grc
-        grc --colour=auto uptime $argv
-    else
-        command uptime $argv
-    end
+    _grc_or_plain uptime $argv
 end

@@ -1,7 +1,3 @@
 function configure
-    if command -sq grc
-        grc --colour=auto configure $argv
-    else
-        command configure $argv
-    end
+    _grc_or_plain configure $argv
 end

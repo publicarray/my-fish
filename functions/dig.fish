@@ -1,7 +1,3 @@
 function dig
-    if command -sq grc
-        grc --colour=auto dig +multiline $argv
-    else
-        command dig +multiline $argv
-    end
+    _grc_or_plain dig +multiline $argv
 end

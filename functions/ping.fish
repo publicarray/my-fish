@@ -1,7 +1,3 @@
 function ping
-    if command -sq grc
-        grc --colour=auto ping $argv
-    else
-        command ping $argv
-    end
+    _grc_or_plain ping $argv
 end

@@ -27,12 +27,20 @@ function serve -d 'Start a quick local static file server -b<bind/host> -p<port>
         set WEBROOT "$argv[1]"
     end
     echo "🌐 Starting webserver at http://$HOST:$PORT"
-    open "http://127.0.0.1:$PORT/" &
+    if command -sq open
+        open "http://127.0.0.1:$PORT/" &
+    else if command -sq xdg-open
+        xdg-open "http://127.0.0.1:$PORT/" &
+    end
 
     if command -sq serve
         # https://github.com/syntaqx/serve
         # go install github.com/syntaqx/serve/cmd/serve@latest
         command serve --host $HOST --port $PORT
+    else if command -sq miniserve
+        # https://github.com/svenstaro/miniserve
+        # cargo install miniserve
+        miniserve $WEBROOT --port $PORT --interfaces $HOST
     else if command -sq sfz
         # https://github.com/weihanglo/sfz
         # cargo install sfz

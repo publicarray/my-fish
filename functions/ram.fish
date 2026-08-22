@@ -12,7 +12,7 @@ function ram
         for i in (command ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}')
             set sum (math $i + $sum)
         end
-        set sum (echo "scale=2; $sum / 1024.0" | bc)
+        set sum (math --scale=2 "$sum / 1024.0")
         if test $sum != "0"
             echo (set_color blue)"$app"(set_color reset)" uses "(set_color green)"$sum"(set_color reset)" MBs of RAM."
         else

@@ -1,9 +1,11 @@
 function dotfiles -d "Configure your dotfiles in your editor"
     set -l editor
-    if command -sq subl
+    if command -sq zeditor
+        set editor zeditor
+    else if command -sq subl
         set editor subl
-    else if command -sq atom
-        set editor atom
+    else if set -q EDITOR
+        set editor $EDITOR
     end
 
     if test -z "$argv"

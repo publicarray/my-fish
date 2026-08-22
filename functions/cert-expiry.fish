@@ -13,11 +13,20 @@ function cert-expiry --description 'Show certificate expiry information. usage: 
     # set cert_text (openssl s_client -connect $argv 2>/dev/null </dev/null | openssl x509 -text -noout)
     set cert_end_date (openssl s_client -connect $argv 2>/dev/null </dev/null | openssl x509  -enddate -noout | cut -d'=' -f2)
 
-    set cert_end_time (date -d $cert_end_date "+%s")
+    if test (uname) = Darwin
+        # BSD date has no -d
+        set cert_end_time (date -j -f "%b %e %T %Y %Z" "$cert_end_date" "+%s")
+    else
+        set cert_end_time (date -d "$cert_end_date" "+%s")
+    end
     set current_time (date "+%s")
     set remaining (math "(($cert_end_time - $current_time) / 60 / 60 / 24)")
 
-    echo Certificate expiry date: (date -d "$cert_end_date")
+    if test (uname) = Darwin
+        echo Certificate expiry date: (date -j -f "%b %e %T %Y %Z" "$cert_end_date")
+    else
+        echo Certificate expiry date: (date -d "$cert_end_date")
+    end
     printf "Certificate expires in $bold%.0f$reset days\n" $remaining
     if [ $remaining -gt 30 ]
         printf "$green%s %s %s$reset\n" "Certificate" $argv[1] "is valid for over 1 month 👍"

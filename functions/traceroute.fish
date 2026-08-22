@@ -1,7 +1,3 @@
 function traceroute
-    if command -sq grc
-        grc --colour=auto traceroute $argv
-    else
-        command traceroute $argv
-    end
+    _grc_or_plain traceroute $argv
 end

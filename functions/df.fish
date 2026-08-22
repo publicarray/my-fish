@@ -1,7 +1,3 @@
 function df
-    if command -sq grc
-        grc --colour=auto df -h $argv
-    else
-        command df -h $argv
-    end
+    _grc_or_plain df -h $argv
 end

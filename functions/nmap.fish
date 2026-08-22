@@ -1,9 +1,5 @@
 if command -sq nmap
     function nmap
-        if command -sq grc
-            grc --colour=auto nmap $argv
-        else
-            command nmap $argv
-        end
+        _grc_or_plain nmap $argv
     end
 end
