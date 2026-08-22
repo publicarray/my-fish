@@ -1,19 +1,21 @@
-function my-fish
+function my-fish --description 'Install opinionated fish defaults'
 
     # required:
     #   fish: brew install fish
     #   fishermen: curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
     #   starship: brew install starship
-    if not command -sq starship and not command -sq fish and not type -q fisher and not command
-        echo "Error: missing requirements, starship"
+    if not command -sq starship; or not command -sq fish; or not type -q fisher
+        echo "Error: missing requirements, starship/fish/fisher"
         return 1
     end
 
     echo "Make fish your default shell"
-    if ! grep -q (which fish) /etc/shells
-        which fish | sudo tee -a /etc/shells
+    if not grep -q (type -p fish) /etc/shells
+        type -p fish | sudo tee -a /etc/shells
     end
-    chsh -s (which fish)
+    if test "$SHELL" != (type -p fish)
+        chsh -s (type -p fish)
+    end
 
     echo "Set Environment Variables"
     # remove fish greeting
@@ -29,10 +31,10 @@ function my-fish
 
     echo "Link Sublime-Text command (subl)"
     if test -f /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl
-        ln -n /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin
+        ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin
     end
     if test -f /Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge
-        ln -s /Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge /usr/local/bin
+        ln -sf /Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge /usr/local/bin
     end
 
     #echo "Set shell colours"
@@ -76,50 +78,49 @@ function my-fish
 
     echo "Update PATH"
     if command -sq yarn
-        set yarn_globals (yarn global bin 2>/dev/null)
+        set -l yarn_globals (yarn global bin 2>/dev/null)
         echo "Add yarn global packages $yarn_globals to \$PATH"
-        set -U fish_user_paths $fish_user_paths $yarn_globals
+        fish_add_path -U $yarn_globals
     end
 
     if command -sq go
-        echo "Add GOPATH: $GOPATH to \$PATH"
         set -Ux GOPATH $HOME/.go
-        set -U fish_user_paths $fish_user_paths $GOPATH/bin
+        echo "Add GOPATH: $GOPATH to \$PATH"
+        fish_add_path -U $GOPATH/bin
         mkdir -p $GOPATH
     end
 
     if command -sq cargo
         echo "Add rust binaries (.cargo/bin) to \$PATH"
-        set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+        fish_add_path -U $HOME/.cargo/bin
     end
 
     if command -sq composer
+        set -l COMPOSER_BIN_PATH
         if test -n "$COMPOSER_HOME"
-            set -g COMPOSER_BIN_PATH $COMPOSER_HOME/vendor/bin
+            set COMPOSER_BIN_PATH $COMPOSER_HOME/vendor/bin
         else if test -n "$XDG_CONFIG_HOME"
-            set -g COMPOSER_BIN_PATH $XDG_CONFIG_HOME/composer/vendor/bin
+            set COMPOSER_BIN_PATH $XDG_CONFIG_HOME/composer/vendor/bin
         else if test -d "$HOME/.config/composer"
-            set -g COMPOSER_BIN_PATH $HOME/.config/composer/vendor/bin
+            set COMPOSER_BIN_PATH $HOME/.config/composer/vendor/bin
         else
-            set -g COMPOSER_BIN_PATH $HOME/.composer/vendor/bin
+            set COMPOSER_BIN_PATH $HOME/.composer/vendor/bin
         end
         echo "Add composer binaries ($COMPOSER_BIN_PATH) to \$PATH"
-        if not contains "$COMPOSER_BIN_PATH" $PATH
-            set -U fish_user_paths $COMPOSER_BIN_PATH $fish_user_paths
-        end
+        fish_add_path -U $COMPOSER_BIN_PATH
     end
 
     if command -sq brew
         echo "Add Homebrew binaries to \$PATH"
-        set -U fish_user_paths (brew --prefix)"/sbin" $fish_user_paths
+        fish_add_path -U (brew --prefix)/sbin
         if which -a ruby | grep -q 'ruby/bin/ruby'
             echo "Add Homebrew ruby binaries to \$PATH"
-            set -U fish_user_paths (brew --prefix)"/opt/ruby/bin" $fish_user_paths
+            fish_add_path -U (brew --prefix)/opt/ruby/bin
         end
     end
 
     echo "Show paths"
-    path
+    echo $PATH
     set --show fish_user_paths
 
     echo "Update completions"
