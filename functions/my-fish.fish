@@ -68,6 +68,12 @@ function my-fish
     set -Ux LESS_TERMCAP_ue \e'[0m' # end underline
     set -Ux LESS_TERMCAP_us \e'[01;32m' # begin underline
 
+    if command -sq bat
+        echo "Use bat for man page colouring"
+        set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
+        set -Ux MANROFFOPT "-c"
+    end
+
     echo "Update PATH"
     if command -sq yarn
         set yarn_globals (yarn global bin 2>/dev/null)
