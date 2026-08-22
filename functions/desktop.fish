@@ -5,9 +5,9 @@ function desktop -d "hide/show your desktop icons"
         return 1
     end
 
-    set showdesktop = false
-    if test $argv = 'show' or test $argv = 'true' or test $argv = 'yes'
-        set showdesktop = true
+    set showdesktop false
+    if test "$argv" = 'show'; or test "$argv" = 'true'; or test "$argv" = 'yes'
+        set showdesktop true
     end
 
     test -z "$OSTYPE"; and set OSTYPE (uname)

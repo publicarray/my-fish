@@ -9,7 +9,7 @@ function vid2gif -d "Convert video to gif file with ffmpeg"
             return 1
         end
 
-        set -l filename argv[1]
+        set -l filename $argv[1]
         set -l scale -1
         set -l fps 15
 
@@ -22,7 +22,7 @@ function vid2gif -d "Convert video to gif file with ffmpeg"
         end
 
         ffmpeg -y -i "$filename" -vf fps=$fps,scale=$scale:-1:flags=lanczos,palettegen "$filename".png
-        ffmpeg -i $filename -i $filename.png -filter_complex "fps=$fps,scale=$scale:-1:flags=lanczos[x];[x][1:v]paletteuse" "$filename".gif
+        ffmpeg -i "$filename" -i "$filename".png -filter_complex "fps=$fps,scale=$scale:-1:flags=lanczos[x];[x][1:v]paletteuse" "$filename".gif
         rm -f "$filename".png
     else
         printf "This script requires ffmpeg\nInstall ffmpeg with your package manager:\n    macOS: brew install ffmpeg\n    Linux: https://www.ffmpeg.org/download.html#build-linux\n    Windows: http://ffmpeg.zeranoe.com/builds/"
