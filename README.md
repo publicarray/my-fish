@@ -222,14 +222,19 @@ Native PowerShell setup with starship and modern CLI tools via
 [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
 
 ```powershell
+winget install -e --id Microsoft.WindowsTerminal
+winget install -e --id Microsoft.PowerShell
+winget install -e --id Git.Git
 winget install -e --id Starship.Starship
 winget install -e --id DEVCOM.JetBrainsMonoNerdFont
 ```
 
-Add the following to your profile (`notepad $PROFILE`):
+Add Starship to your profile:
 
 ```powershell
-Invoke-Expression (&starship init powershell)
+New-Item -Path $PROFILE -Type File -Force | Out-Null
+$init = 'Invoke-Expression (&starship init powershell)'
+if (-not (Select-String -Path $PROFILE -Pattern $init -SimpleMatch -Quiet)) { $init >> $PROFILE }
 ```
 
 * Install extra commands
