@@ -115,7 +115,7 @@ set -Ux VISUAL $EDITOR
 
 ```sh
 sudo apt install software-properties-common
-sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-add-repository ppa:fish-shell/release-4
 # nightly -> sudo add-apt-repository ppa:fish-shell/nightly-master
 sudo apt update
 sudo apt install fish
@@ -129,44 +129,59 @@ sudo apt install fonts-firacode
 
 * Install [fish](https://fishshell.com/#get_fish_linux)
 
-[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
+[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A4&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A4&package=fish)
 
+Debian 13 (trixie), swap `Debian_13` for your release.
 
 ```sh
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list
-apt-get update
-apt-get install fish
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_13/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:4.list
+curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_13/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null
+sudo apt update
+sudo apt install fish
 ```
 
 ### Arch
 
 ```sh
-sudo pacman -S fish
-# one of the following fonts
-# https://aur.archlinux.org/packages/?K=nerd-fonts&SB=p
-yay -S starship nerd-fonts-fira-code
+sudo pacman -S fish starship
+# https://wiki.archlinux.org/title/Nerd_Fonts
+sudo pacman -S ttf-firacode-nerd
+```
+
+* (Optional) Install extra commands
+
+  `bat`, `eza`, `xh`, `procs` and `skim` are detected and used automatically by
+  `my-fish` functions (man pages, `ls`/`ll`, `http`, `ps`, `sk`) when present.
+  The rest are just recommended standalone tools, not wired into anything.
+
+```sh
+sudo pacman -S fzf ripgrep fd bat tealdeer yt-dlp eza xh procs \
+  btop bottom dust dua-cli jq hyperfine lazygit glow
+# skim: in CachyOS repos, AUR on vanilla Arch
+sudo pacman -S skim # or: paru -S skim
+tldr --update # fetch the tealdeer cache on first run
 ```
 
 ### RedHat (Fedora / CentOS)
 
 * Install [fish](https://fishshell.com/#get_fish_linux)
 
-[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A2&package=fish)
+[https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A4&package=fish](https://software.opensuse.org/download.html?project=shells%3Afish%3Arelease%3A4&package=fish)
 
 #### Fedora
 
 ```sh
-dnf install fish rust-starship
-dnf copr enable evana/fira-code-fonts
-dnf install fira-code-fonts
+sudo dnf install fish fira-code-fonts
+sudo dnf copr enable atim/starship
+sudo dnf install starship
 ```
 
 #### CentOS
 
 ```sh
 cd /etc/yum.repos.d/
-wget https://download.opensuse.org/repositories/shells:fish:release:3/CentOS_8/shells:fish:release:3.repo
-yum install fish
+sudo wget https://download.opensuse.org/repositories/shells:fish:release:3/CentOS-9_Stream/shells:fish:release:3.repo
+sudo yum install fish
 ```
 
 ### Gentoo

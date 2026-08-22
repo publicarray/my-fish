@@ -1,5 +1,5 @@
 # Show directory size
 function size
-    # du -khsc $argv | sort -rn
-    du -khsc $argv
+    # command du -khsc $argv | sort -rn
+    command du -khsc $argv
 end
