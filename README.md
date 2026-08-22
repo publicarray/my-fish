@@ -278,10 +278,13 @@ winget install -e --id Microsoft.Coreutils
 Edit your profile to add aliases: `notepad $PROFILE` or `micro $PROFILE`
 
 ```powershell
+Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
 function ls { eza --icons=auto @args }
 function ll { eza -l --group-directories-first --icons=auto @args }
+Remove-Item Alias:cat -Force -ErrorAction SilentlyContinue
 function cat { bat @args }
 function c { bat @args }
+Remove-Item Alias:ps -Force -ErrorAction SilentlyContinue
 function ps { procs @args }
 function http { xh @args }
 function ff { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
