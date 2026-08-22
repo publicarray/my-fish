@@ -289,6 +289,15 @@ function ps { procs @args }
 function http { xh @args }
 function ff { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
 
+# no native `ip` on Windows; closest built-in equivalent to `ip a`/`ip r`/`ip link`
+function ip {
+    param([Parameter(ValueFromRemainingArguments)]$rest)
+    $sub = if ($rest) { $rest[0] }
+    if ($sub -in 'r', 'route') { Get-NetRoute }
+    elseif ($sub -in 'l', 'link') { Get-NetAdapter }
+    else { Get-NetIPConfiguration -Detailed }
+}
+
 # safer rm: moves to the Recycle Bin instead of deleting outright
 Add-Type -AssemblyName Microsoft.VisualBasic
 Remove-Item Alias:rm -Force -ErrorAction SilentlyContinue
