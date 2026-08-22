@@ -153,15 +153,16 @@ sudo pacman -S ttf-firacode-nerd
   `bat`, `eza`, `xh`, `procs` and `skim` are detected and used automatically by
   `my-fish` functions (man pages, `ls`/`ll`, `http`, `ps`, `sk`) when present.
   The rest are just recommended standalone tools, not wired into anything.
+  `git-delta` (git pager) and `tealdeer`'s cache are configured automatically by
+  `my-fish` when present, see [3. Install my-fish and run my-fish](#3-install-my-fish-and-run-my-fish).
 
 ```sh
 sudo pacman -S fzf ripgrep fd bat tealdeer yt-dlp eza xh procs \
-  btop bottom dust dua-cli jq hyperfine lazygit glow miniserve
+  btop bottom dust dua-cli jq hyperfine lazygit glow miniserve git-delta
 # skim: in CachyOS repos, AUR on vanilla Arch
 sudo pacman -S skim # or: paru -S skim
 # pay-respects (used by fuck.fish)
 paru -S pay-respects
-tldr --update # fetch the tealdeer cache on first run
 
 # optional: rust rewrites of coreutils/sudo
 sudo pacman -S uutils-coreutils sudo-rs
