@@ -15,6 +15,7 @@ publicarray's fish aliases, functions and configuration
         + [Gentoo](#gentoo)
         + [Nix](#nix)
         + [FreeBSD](#freebsd)
+        + [Windows 11](#windows-11)
     * [2. Install fisher](#2-install-fisher)
     * [3. Install my-fish and run my-fish](#3-install-my-fish-and-run-my-fish)
 
@@ -214,6 +215,48 @@ portsnap fetch update
 cd /usr/ports/shells/starship
 make install clean
 ```
+
+### Windows 11
+
+Native PowerShell setup with starship and modern CLI tools via
+[winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
+
+```powershell
+winget install -e --id Starship.Starship
+winget install -e --id DEVCOM.JetBrainsMonoNerdFont
+```
+
+Add the following to your profile (`notepad $PROFILE`):
+
+```powershell
+Invoke-Expression (&starship init powershell)
+```
+
+* Install extra commands
+
+```powershell
+winget install -e --id junegunn.fzf
+winget install -e --id BurntSushi.ripgrep.MSVC
+winget install -e --id sharkdp.fd
+winget install -e --id sharkdp.bat
+winget install -e --id dbrgn.tealdeer
+winget install -e --id yt-dlp.yt-dlp
+winget install -e --id eza-community.eza
+winget install -e --id ducaale.xh
+winget install -e --id dalance.procs
+winget install -e --id Clement.bottom
+winget install -e --id bootandy.dust
+winget install -e --id jqlang.jq
+winget install -e --id sharkdp.hyperfine
+winget install -e --id JesseDuffield.lazygit
+winget install -e --id charmbracelet.glow
+winget install -e --id svenstaro.miniserve
+winget install -e --id dandavison.delta
+# rust rewrite of coreutils/findutils/grep, maintained by Microsoft
+winget install -e --id Microsoft.Coreutils
+```
+
+`skim` and `pay-respects` installable via `cargo install skim` / `cargo install pay-respects` if you have Rust installed.
 
 ## 2. Install [fisher](https://github.com/jorgebucaran/fisher)
 
