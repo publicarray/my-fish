@@ -237,6 +237,18 @@ $init = 'Invoke-Expression (&starship init powershell)'
 if (-not (Select-String -Path $PROFILE -Pattern $init -SimpleMatch -Quiet)) { $init >> $PROFILE }
 ```
 
+Hide the copyright/welcome banner (prints before `$PROFILE` loads, so `-NoLogo`
+has to go on the launch command itself, not in the profile): Windows Terminal
+→ Settings (`Ctrl+,`) → select the **Windows PowerShell** profile → Command
+line → append ` -NoLogo`. Repeat for the **PowerShell** (7) profile.
+
+* [micro](https://github.com/zyedidia/micro) — nano-like terminal editor, cross-platform
+
+```powershell
+winget install -e --id zyedidia.micro
+[Environment]::SetEnvironmentVariable('EDITOR', 'micro', 'User')
+```
+
 * Install extra commands
 
 ```powershell
@@ -262,6 +274,21 @@ winget install -e --id Microsoft.Coreutils
 ```
 
 `skim` and `pay-respects` installable via `cargo install skim` / `cargo install pay-respects` if you have Rust installed.
+
+Edit your profile to add aliases: `notepad $PROFILE` or `micro $PROFILE`
+
+```powershell
+Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
+function ls { eza --icons=auto @args }
+function ll { eza -l --group-directories-first --icons=auto @args }
+Remove-Item Alias:cat -Force -ErrorAction SilentlyContinue
+function cat { bat @args }
+function c { bat @args }
+Remove-Item Alias:ps -Force -ErrorAction SilentlyContinue
+function ps { procs @args }
+function http { xh @args }
+function ff { fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' }
+```
 
 ## 2. Install [fisher](https://github.com/jorgebucaran/fisher)
 
