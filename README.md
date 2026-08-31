@@ -252,6 +252,8 @@ winget install -e --id zyedidia.micro
 * Install extra commands
 
 ```powershell
+winget install -e --id FujiApple.Trippy
+winget install -e --id orf.gping
 winget install -e --id junegunn.fzf
 winget install -e --id BurntSushi.ripgrep.MSVC
 winget install -e --id sharkdp.fd
